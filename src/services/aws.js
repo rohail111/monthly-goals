@@ -7,10 +7,10 @@ if (typeof window !== 'undefined') {
   Buffer.from('anything', 'base64');
   window.Buffer = window.Buffer || require('buffer').Buffer;
   const creds = {
-    region: 'us-east-2',
+    region: process.env.NEXT_PUBLIC_REGION,
     credentials: {
-      accessKeyId: 'AKIAQEXASG7F6QIACB4I',
-      secretAccessKey: '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',
+      accessKeyId: process.env.NEXT_PUBLIC_ACCESSKEYID,
+      secretAccessKey: process.env.NEXT_PUBLIC_SECRETACCESSKEY,
     },
   };
   ReactS3Client = new S3(creds);
@@ -20,7 +20,7 @@ const fileUploader = (file, path) => {
   return new Upload({
     client: ReactS3Client,
     params: {
-      Bucket: 'monthly-goals',
+      Bucket: process.env.NEXT_PUBLIC_BUCKET_NAME,
       Key: path,
       Body: file,
     },

@@ -1,10 +1,11 @@
 import {useState} from 'react';
 import AWS from 'aws-sdk';
+import {env} from '../../next.config';
 
 AWS.config.update({
-  region: 'eu-north-1',
-  accessKeyId: 'AKIAQEXASG7F6QIACB4I',
-  secretAccessKey: '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',
+  region: process.env.NEXT_PUBLIC_REGION,
+  accessKeyId: process.env.NEXT_PUBLIC_ACCESSKEYID,
+  secretAccessKey: process.env.NEXT_PUBLIC_SECRETACCESSKEY,
 });
 
 const ses = new AWS.SES({region: 'eu-north-1'});

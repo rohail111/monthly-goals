@@ -3,9 +3,9 @@ import AWS from 'aws-sdk';
 import fileUploader from '@/services/aws';
 
 AWS.config.update({
-  region: 'us-east-2',
-  accessKeyId: 'AKIAQEXASG7F6QIACB4I',
-  secretAccessKey: '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',
+  region: process.env.NEXT_PUBLIC_REGION,
+  accessKeyId: process.env.NEXT_PUBLIC_ACCESSKEYID,
+  secretAccessKey: process.env.NEXT_PUBLIC_SECRETACCESSKEY,
 });
 
 const s3 = new AWS.S3();
